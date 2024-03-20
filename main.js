@@ -4,7 +4,7 @@ const zoltanian = ["H","He","Li","Be","B","C","N","O","F","Ne","Na","Mg","Al","S
 function encode(message) {
     let encodedMessage = "";
     for(let i = 0; i < message.length; i++) {
-        let char =      message.charAt(i);
+        let char =      message.charAt(i).toUpperCase();
         let       index = english.indexOf(char);
         let translatechar = zoltanian[index];
 
@@ -47,3 +47,4 @@ if(encodedMessage == reincodedmessage) {
 } else {
     console.log("fail");
 }
+console.log(encode("Do you have the time to listen to me whine about nothing and everything all at once I am one of those melodramatic fools neurotic to the bone no doubt about itsometimes I give myself the creeps sometimes my mind plays tricks on me it all keeps adding up I think I'm cracking up am I just paranoid or am I just stoned?"));
