@@ -5,11 +5,25 @@
 </head>
 <body>
     <h1>Zoltanian Translator(Super cool)</h1>
-    <input type="text">
+    <input type="text" id="messag">
     <button>
         Encode
     </button>
-    <button>
+    <button id="decod-buton">
         Decode
     </button>
+    <p id="otput">
+
+    </p>
+    <script>
+        console.log("Zoltanian Translator(Super Cool)");
+        let decodButon = document.querySelector("#decod-buton");
+    decodButon.addEventListener("click", function(event){
+        let messag= document.querySelector("#messag");
+      let decodedmessage =  decode(messag.value);
+    let otput = document.querySelector("#otput");
+    otput.textContent = decodedmessage;
+    
+    })
+    </script>
 </body>
