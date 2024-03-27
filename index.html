@@ -6,7 +6,7 @@
 <body>
     <h1>Zoltanian Translator(Super cool)</h1>
     <input type="text" id="messag">
-    <button>
+    <button id="encod-buton">
         Encode
     </button>
     <button id="decod-buton">
@@ -16,14 +16,19 @@
 
     </p>
     <script>
-        console.log("Zoltanian Translator(Super Cool)");
-        let decodButon = document.querySelector("#decod-buton");
+    let decodButon = document.querySelector("#decod-buton");
     decodButon.addEventListener("click", function(event){
         let messag= document.querySelector("#messag");
-      let decodedmessage =  decode(messag.value);
-    let otput = document.querySelector("#otput");
-    otput.textContent = decodedmessage;
-    
-    })
+        let decodedmessage =  decode(messag.value);
+        let otput = document.querySelector("#otput");
+        otput.textContent = decodedmessage;
+    });
+    let encodButon = document.querySelector("#encod-buton");
+    encodButon.addEventListener("click", function(event){
+        let messag= document.querySelector("#messag");
+        let encodedmessage =  encode(messag.value);
+        let otput = document.querySelector("#otput");
+        otput.textContent = encodedmessage;
+    });
     </script>
 </body>
