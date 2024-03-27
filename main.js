@@ -29,13 +29,15 @@ function decode(message){
            index = zoltanian.indexOf(char);
         }
         let translatechar = english[index];
-
+        if(translatechar == undefined){
+            translatechar = "ScSiBeBCFSiBBe";
+        }
             decodedMessage = decodedMessage + translatechar;
     }
         return decodedMessage;
 }
-
-let encodedMessage = "OHSSMn HeFArCaOBeHMnCu MnPSc HArB RfDs";
+//Enter Zoltanian text below
+let encodedMessage = "HMgMg OBMgMg HeArBHLiNaK MgPPKB";
 console.log(encodedMessage);
 let decodedMessage = decode(encodedMessage);
 console.log(decodedMessage);
@@ -47,4 +49,5 @@ if(encodedMessage == reincodedmessage) {
 } else {
     console.log("fail");
 }
-console.log(encode("Do you have the time to listen to me whine about nothing and everything all at once I am one of those melodramatic fools neurotic to the bone no doubt about itsometimes I give myself the creeps sometimes my mind plays tricks on me it all keeps adding up I think I'm cracking up am I just paranoid or am I just stoned?"));
+//Enter English text below
+console.log(encode("Entropy"));
