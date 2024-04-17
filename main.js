@@ -38,8 +38,10 @@ function decode(message){
 }
 
 function isSpecialCharacter(character) {
-    return character == ' ' || character == ',';
+    let index = english.indexOf(character);
+    return index > 36;
 }
+
 //Enter Zoltanian text below
 let encodedMessage = "HMgMg OBMgMg HeArBHLiNaK MgPPKB";
 console.log(encodedMessage);
