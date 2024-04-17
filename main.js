@@ -18,7 +18,7 @@ function decode(message){
     for (let i = 0; i < message.length; i++){
         let char =        message.charAt(i);
         let nextChar = message.charAt(i + 1);
-        if(nextChar != ' ' && nextChar == nextChar.toLowerCase()){
+        if(!isSpecialCharacter(nextChar) && nextChar == nextChar.toLowerCase()){
             char = char + message.charAt(i + 1);
             i++;
         }
@@ -35,6 +35,10 @@ function decode(message){
             decodedMessage = decodedMessage + translatechar;
     }
         return decodedMessage;
+}
+
+function isSpecialCharacter(character) {
+    return character == ' ' || character == ',';
 }
 //Enter Zoltanian text below
 let encodedMessage = "HMgMg OBMgMg HeArBHLiNaK MgPPKB";
