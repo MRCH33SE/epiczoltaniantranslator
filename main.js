@@ -1,5 +1,5 @@
-const english =   ["A", "B", "C", "D","E","F","G","H","I", "J", "K", "L", "M", "N","O","P", "Q", "R","S", "T", "U", "V","W", "X", "Y", "Z",  "1",  "2",  "3",  "4",  "5",  "6",  "7",  "8",  "9",  "0",  ".", "!" ,  "?"," ", ",", "-", "'", "(", ")", "[", "]", "{", "}", "/", "\\", "|", "\"", "@", "#", "$", "%", "^", "&", "*", "_", "+", "=", "<", ">", "`", "~",";", ":"];
-const zoltanian = ["H","He","Li","Be","B","C","N","O","F","Ne","Na","Mg","Al","Si","P","S","Cl","Ar","K","Ca","Sc","Ti","V","Cr","Mn","Fe", "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Cu", "Zn", "Ga"," ", ",", "-", "'", "(", ")", "[", "]", "{", "}", "/", "\\", "|", "\"", "@", "#", "$", "%", "^", "&", "*", "_", "+", "=", "<", ">", "`", "~",";", ":"];
+const english =   ["A", "B", "C", "D","E","F","G","H","I", "J", "K", "L", "M", "N","O","P", "Q", "R","S", "T", "U", "V","W", "X", "Y", "Z",  "1",  "2",  "3",  "4",  "5",  "6",  "7",  "8",  "9",  "0",  ".", "!" ,  "?"," ", ",", "-", "'", "(", ")", "[", "]", "{", "}", "/", "\\", "|", "\"", "@", "#", "$", "%", "^", "&", "*", "_", "+", "=", "<", ">", "`", "~",";", ":", "\n"];
+const zoltanian = ["H","He","Li","Be","B","C","N","O","F","Ne","Na","Mg","Al","Si","P","S","Cl","Ar","K","Ca","Sc","Ti","V","Cr","Mn","Fe", "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Cu", "Zn", "Ga"," ", ",", "-", "'", "(", ")", "[", "]", "{", "}", "/", "\\", "|", "\"", "@", "#", "$", "%", "^", "&", "*", "_", "+", "=", "<", ">", "`", "~",";", ":", "\n"];
 
 function encode(message) {
     let encodedMessage = "";
@@ -7,7 +7,9 @@ function encode(message) {
         let char =      message.charAt(i).toUpperCase();
         let       index = english.indexOf(char);
         let translatechar = zoltanian[index];
-
+        if (translatechar == undefined) {
+            console.log(char);
+        }
         encodedMessage = encodedMessage + translatechar;
     }
     return encodedMessage;
