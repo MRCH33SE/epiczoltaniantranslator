@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<head>
+    <title>Zoltanian translator now with more ciphers</title>
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" type="text/css">
+    <style>
+        button {
+            font-size: x-large;
+        }
+    </style>
+<script src="main.js" ></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.dropdown-content {
+  background-color: #3498DB;
+  display: none;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: yellow;
+  padding: 12px 16px;
+  display: block;
+  
+}
+.copy-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: small;
+    }
+.show {display: block;}
+</style>
+</head>
+
+<body>
+    <h1>Zoltanian Translator(Super cool)</h1>
+    <p>Now including other ciphers! Yay!</p>
+
+    <div class="dropdown">
+      <button onclick="toggleVisibility()" class="dropbtn">Select Cipher</button>
+      <p id="selectedCipherDisplay"></p>
+
+      <div id="otherCipherDropdown" class="dropdown-content">
+        <a href="#Zoltanian" onclick="handleCipherSelection('Classic Zoltanian')">Classic Zoltanian</a>
+        <a href="#Z" onclick="handleCipherSelection('Alternate Z')">Z alt</a>
+        <a href="#Jos" onclick="handleCipherSelection('Jos')">Jos</a>
+        <a href="#C" onclick="handleCipherSelection('C')">C</a>
+        <a href="#A" onclick="handleCipherSelection('A')">A</a>
+        <a href="#G" onclick="handleCipherSelection('G')">G</a>
+        <a href="#T" onclick="handleCipherSelection('т')">т</a>
+        <a href="#L" onclick="handleCipherSelection('L')">L</a>
+        <a href="#J" onclick="handleCipherSelection('J')">J</a>
+      </div>
+      <h1></h1>
+    <textarea id="messag-alt"></textarea>
+    <br>
+    <button id="encod-buton-alt">
+        Encode
+    </button>
+    <button id="decod-buton-alt">
+        Decode
+    </button>
+    <pre id="otput-alt" style="white-space: pre-wrapgit;">
+      Translations will appear here
+    </pre>
+    <button class="copy-btn" onclick="copyText()">Copy Translated text</button>
+
+    <script>
+
+    </script>
+</body>
+
+<body>
+
+</div>
+
+<script>
+encodedLastTime="maybe";
+theChosenCipher = zoltanian;
+usingCipher = "Classic Zoltanian";
+document.getElementById("selectedCipherDisplay").innerText = "Currently Using: Classic Zoltanian Cipher";
+
+function askToDecode() {
+  let messagAlt = document.querySelector("#messag-alt");
+        let decodedmessageAlt =  decodeAlt(messagAlt.value, theChosenCipher);
+        let otputAlt = document.querySelector("#otput-alt");
+        otputAlt.textContent = decodedmessageAlt;
+    encodedLastTime = "no way";
+}
+
+function askToEncode() {
+  let messagAlt = document.querySelector("#messag-alt");
+  let encodedmessageAlt =  encodeAlt(messagAlt.value, theChosenCipher);
+  let otputAlt = document.querySelector("#otput-alt");
+  otputAlt.textContent = encodedmessageAlt;
+  encodedLastTime = "yes";
+}
+
+
+function toggleVisibility() {
+  document.getElementById("otherCipherDropdown").classList.toggle("show");
+}
+
+function handleCipherSelection(selectedCipher) {
+
+  console.log(selectedCipher);
+    //select cipher list based on what was clicked  
+  if (selectedCipher == 'C') {
+    theChosenCipher = CAlt;
+  } else if (selectedCipher == "Classic Zoltanian") {
+    theChosenCipher = zoltanian;
+  } else if (selectedCipher == 'Alternate Z') {
+    theChosenCipher = ZAlt;
+  } else if (selectedCipher == 'Jos') {
+    theChosenCipher = JosAlt;
+  } else if (selectedCipher == "A") {
+    theChosenCipher = AAlt;
+  } else if (selectedCipher == "G") {
+    theChosenCipher = GAlt;
+  } else if (selectedCipher == "т") {
+    theChosenCipher = TAlt;
+  } else if (selectedCipher == "L") {
+    theChosenCipher = LAlt;
+  } else if (selectedCipher == "J") {
+    theChosenCipher = JAlt;
+  }
+  document.getElementById("selectedCipherDisplay").innerText = "Currently Using: " + selectedCipher + " Cipher";
+  if (encodedLastTime = "yes") {
+  askToEncode();
+  } else if (encodedLastTime = "no way") {
+    console.log("did not encode last time so probably does not need to now")
+  }
+}
+
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+let decodButonAlt = document.querySelector("#decod-buton-alt");
+    decodButonAlt.addEventListener("click", function(event){
+      askToDecode();
+    });
+    let encodButonAlt = document.querySelector("#encod-buton-alt");
+    encodButonAlt.addEventListener("click", function(event){
+      askToEncode();
+    });
+
+    function copyText() {
+        var text = document.getElementById('otput-alt').innerText;
+        navigator.clipboard.writeText(text)
+            .then(() => console.log(text + ' copied to clipboard'))
+            .catch(error => console.error('Failed to copy: ', error));
+    }
+</script>
+
+</body>
+</html>
