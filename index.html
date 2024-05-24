@@ -27,14 +27,14 @@
     let decodButon = document.querySelector("#decod-buton");
     decodButon.addEventListener("click", function(event){
         let messag= document.querySelector("#messag");
-        let decodedmessage =  decode(messag.value);
+        let decodedmessage =  decodeAlt(messag.value, zoltanian);
         let otput = document.querySelector("#otput");
         otput.textContent = decodedmessage;
     });
     let encodButon = document.querySelector("#encod-buton");
     encodButon.addEventListener("click", function(event){
         let messag= document.querySelector("#messag");
-        let encodedmessage =  encode(messag.value);
+        let encodedmessage =  encodeAlt(messag.value, zoltanian);
         let otput = document.querySelector("#otput");
         otput.textContent = encodedmessage;
     });
